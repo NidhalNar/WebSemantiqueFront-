@@ -27,8 +27,8 @@ const routes: Routes = [
   { path: 'listnotification', component: ListeNotificationComponent },
 
 
-  { path: '', redirectTo: '/listrestaurant', pathMatch: 'full' }, // Optional: default route
-  { path: '**', redirectTo: '/listrestaurant' }, // Optional: wildcard route
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Optional: default route
+  { path: '**', redirectTo: '/home' }, // Optional: wildcard route
 
 
 

@@ -42,7 +42,7 @@
                 <input type="text" id="quantity" name="quantity" [(ngModel)]="newUni.quantity" class="form-control" required>
 
                 <label for="expiryDate">Expiry Date:</label>
-                <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="newUni.expiryDate" class="form-control" required>
+                <input type="date" id="expiryDate" name="expiryDate" [(ngModel)]="newUni.expiryDate" class="form-control" required>
 
                 <button type="submit" [disabled]="restaurantForm.invalid" class="btn btn-success">Add</button>
                 <button type="button" (click)="showForm = false" class="btn btn-danger">Cancel</button>
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <button (click)="showForm = !showForm" class="btn btn-primary">
+    <button (click)="showForm = !showForm" class="btn btn-primary toggle-btn">
     {{ showForm ? 'Cancel' : 'Add Food' }}
   </button>
 </div>

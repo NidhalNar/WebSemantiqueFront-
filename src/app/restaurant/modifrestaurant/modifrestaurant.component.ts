@@ -56,7 +56,7 @@ export class ModifrestaurantComponent implements OnInit {
       response => {
         console.log('Restaurant modified successfully:', response);
         this.successMessage = 'Restaurant modified successfully!'; // Set success message
-        this.router.navigate(['/restaurants']); // Adjust the route as necessary
+        this.router.navigate(['/listrestaurant']); // Adjust the route as necessary
       },
       error => {
         console.error('Error modifying restaurant:', error);
