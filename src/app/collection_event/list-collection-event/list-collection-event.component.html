@@ -1,0 +1,38 @@
+<div>
+    <h2>List of Collection Events</h2>
+
+    <!-- Form to add a new event -->
+    <div>
+        <h3>Add New Collection Event</h3>
+        <label>Event:
+            <input [(ngModel)]="newEvent.event" placeholder="Enter event URI" />
+        </label><br>
+        <label>Date:
+            <input [(ngModel)]="newEvent.date" placeholder="Enter date" />
+        </label><br>
+        <button (click)="addEvent()">Add Event</button>
+    </div>
+
+    <!-- List of events -->
+    <ul>
+        <li *ngFor="let event of events">
+            <strong>Event:</strong> {{ event.event }} <br>
+            <strong>Date:</strong> {{ event.date }} <br>
+            <button (click)="editEvent(event)">Edit</button>
+            <button (click)="deleteEvent(event.event)">Delete</button>
+        </li>
+    </ul>
+
+    <!-- Edit Event Form -->
+    <div *ngIf="selectedEvent">
+        <h3>Edit Event</h3>
+        <label>Event:
+            <input [(ngModel)]="selectedEvent.event" />
+        </label><br>
+        <label>Date:
+            <input [(ngModel)]="selectedEvent.date" />
+        </label><br>
+        <button (click)="updateEvent()">Save</button>
+        <button (click)="selectedEvent = null">Cancel</button>
+    </div>
+</div>

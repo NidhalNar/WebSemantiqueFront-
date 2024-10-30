@@ -8,13 +8,16 @@ import { ListrestaurantComponent } from './restaurant/listrestaurant/listrestaur
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifrestaurantComponent } from './restaurant/modifrestaurant/modifrestaurant.component';
 import { ListfoodComponent } from './food/listfood/listfood.component';
-
+import { ListDirectorComponent } from './director/list-director/list-director.component';
+import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
 @NgModule({
   declarations: [
     AppComponent,
     ListrestaurantComponent,
     ModifrestaurantComponent,
     ListfoodComponent,
+    ListDirectorComponent,
+    ListCollectionEventComponent,
   ],
   imports: [
     BrowserModule,
