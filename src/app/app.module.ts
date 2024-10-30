@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifrestaurantComponent } from './restaurant/modifrestaurant/modifrestaurant.component';
 import { ListfoodComponent } from './food/listfood/listfood.component';
 import { ListefeedbackComponent } from './feedback/listefeedback/listefeedback.component';
+import { ListDirectorComponent } from './director/list-director/list-director.component';
+import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
+import { ListeNotificationComponent } from './Notifivation/listenotification/liste-notification/liste-notification.component';
 
 @NgModule({
   declarations: [
@@ -16,16 +19,19 @@ import { ListefeedbackComponent } from './feedback/listefeedback/listefeedback.c
     ListrestaurantComponent,
     ModifrestaurantComponent,
     ListfoodComponent,
-    ListefeedbackComponent
+    ListefeedbackComponent,
+    ListDirectorComponent,
+    ListCollectionEventComponent,
+    ListeNotificationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

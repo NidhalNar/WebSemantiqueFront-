@@ -1,22 +1,10 @@
-<nav class="navbar">
-    <div class="navbar-container">
-        <h1 class="navbar-brand">Feedback Management
-        </h1>
-        <br><br>
-        <ul class="navbar-menu">
-            <li class="navbar-item">
-                <a routerLink="/listrestaurant" class="navbar-link">Restaurants</a>
-            </li>
-            <li class="navbar-item">
-                <a routerLink="/listfood" class="navbar-link">Foods</a>
-            </li>
-            <li class="navbar-item">
-                <a routerLink="/listfeedback" class="navbar-link">Feedbacks</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<h2 class="centered-title">List of Feedbacks</h2>
+<h2 class="centered-title">
+    List of Feedbacks</h2>
+<div class="filter-section">
+    <input [(ngModel)]="commentFilter" placeholder="Filter by comment" />
+    <button (click)="applyFilter()">Apply Filter</button>
+</div>
+
 <table>
     <thead>
         <tr>
@@ -32,16 +20,33 @@
                 <a [href]="feedback.feedback" target="_blank">{{ feedback.feedback }}</a>
             </td>
             <td>{{ feedback.rating }}</td>
-            <!-- Assurez-vous que cet ordre est correct -->
             <td>{{ feedback.comment }}</td>
             <td>
                 <button (click)="deleteFeedback(feedback)" class="btn btn-danger">Delete</button>
-                <button class="btn btn-secondary" (click)="navigateToUpdateFeedback(feedback)">Modify</button>
+                <button (click)="openModal(feedback)" class="btn btn-secondary">Modify</button>
             </td>
         </tr>
     </tbody>
-
 </table>
+<div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 style="text-align: center;">Modify Feedback</h2>
+        <form *ngIf="selectedFeedback" #editFeedbackForm="ngForm" (ngSubmit)="updateFeedback()">
+            <label for="editRating">Rating:</label>
+            <input type="number" id="editRating" name="rating" [(ngModel)]="selectedFeedback.rating" class="form-control" required min="1" max="5">
+
+            <label for="editComment">Comment:</label>
+            <input id="editComment" name="comment" [(ngModel)]="selectedFeedback.comment" class="form-control" required>
+
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <button type="button" (click)="closeModal()" class="btn btn-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 
 <div class="container mt-4">
     <div class="card mt-3">

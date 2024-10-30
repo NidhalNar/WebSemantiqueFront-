@@ -25,15 +25,10 @@ export class FeedbackService {
   }
 
 
-  // Méthode pour modifier un feedback existant
-  updateFeedback(feedback: Feedback): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/modifyFeedback`, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      body: feedback,
-    });
+  updateFeedback(feedback: Feedback): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/modifyFeedback`, feedback);
   }
+
 
 
   deleteFeedback(feedback: Feedback): Observable<any> {
@@ -46,5 +41,14 @@ export class FeedbackService {
       body: feedback,
     });
   }
-
+  filterFeedbacks(filterCriteria: any): Observable<Feedback[]> {
+    return this.http.post<Feedback[]>(`${this.apiUrl}/filterFeedback`, filterCriteria, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
 }
+
+
+
