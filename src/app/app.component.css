@@ -1,196 +1,134 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 20px;
+/* styles.css */
+.navbar {
+    background-color: #19204E; /* Changement de couleur au bleu */
+    padding: 10px 20px; /* Ajustez l'espace autour de la barre de navigation si nécessaire */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre pour la profondeur */
+    transition: background 0.3s; /* Transition pour le changement de fond */
+}
+  
+.navbar:hover {
+    background-color: #1A2436; /* Change la couleur au survol (vous pouvez ajuster cette couleur si nécessaire) */
+}
+  
+.navbar-container {
+    display: flex; /* Flexbox pour aligner les éléments */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement */
+}
+  
+.navbar-brand {
+    font-size: 2.5em; /* Taille de police pour le titre */
+    color: #ffffff; /* Couleur du texte */
+    font-weight: bold; /* Gras pour le titre */
+    font-family: 'Arial Black', sans-serif; /* Police attirante et en gras */
+}
+  
+.navbar-menu {
+    list-style: none; /* Supprime les puces de la liste */
+    display: flex; /* Affiche les éléments de menu en ligne */
+    margin: 0; /* Enlève la marge par défaut */
+    padding: 0; /* Enlève le remplissage par défaut */
+}
+  
+.navbar-item {
+    margin-left: 25px; /* Espace entre les éléments de menu */
+}
+  
+.navbar-link {
+    color: #ffffff; /* Couleur des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    padding: 10px 15px; /* Espace autour des liens */
+    border-radius: 5px; /* Coins arrondis */
+    font-weight: bold; /* Texte en gras */
+    font-family: 'Verdana', sans-serif; /* Police attirante pour le menu */
+    transition: color 0.3s; /* Transition pour le changement de couleur */
+}
+  
+.navbar-link::after {
+    content: ''; /* Création d'un pseudo-élément pour l'effet de survol */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    width: 100%; /* Prend toute la largeur */
+    height: 3px; /* Hauteur de la ligne */
+    background: #ffffff; /* Couleur de la ligne */
+    left: 0; /* Alignement à gauche */
+    bottom: -5px; /* Espace entre le lien et la ligne */
+    transform: scaleX(0); /* Échelle initiale pour cacher la ligne */
+    transition: transform 0.3s ease; /* Transition pour l'effet d'animation */
+}
+  
+.navbar-link:hover {
+    color: #FFC107; /* Change la couleur du texte au survol */
+}
+  
+.navbar-link:hover::after {
+    transform: scaleX(1); /* Montre la ligne au survol */
+}
+  
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column; /* Empile les éléments en colonne sur les petits écrans */
+        align-items: flex-start; /* Aligne les éléments à gauche */
+    }
+  
+    .navbar-menu {
+        flex-direction: column; /* Empile les éléments de menu en colonne */
+        width: 100%; /* La liste prend toute la largeur */
+        padding: 10px 0; /* Espace autour des éléments de menu */
+    }
+  
+    .navbar-item {
+        margin: 10px 0; /* Espace entre les éléments de menu */
+    }
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #343a40;
+/* styles.css */
+.navbar-logo {
+    height: 80px; /* Ajustez la hauteur à 80px pour une taille plus grande */
+    width: auto;  /* Assure que la largeur s'adapte proportionnellement */
+    margin-right: 20px; /* Espace à droite de l'image */
 }
 
-.restaurant-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.restaurant-table th, .restaurant-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.restaurant-table th {
-    background-color: #007bff;
-    color: white;
-    text-align: left;
-}
-
-.restaurant-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-.btn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.delete-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
-
-.modify-btn {
-    background-color: #6c757d;
-    color: white;
-}
-
-.modify-btn:hover {
-    background-color: #5a6268;
+/* styles.css */
+html, body {
+    height: 100%; /* Assure que le corps de la page prend toute la hauteur */
+    margin: 0; /* Enlève la marge par défaut du corps */
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    min-height: calc(100vh - 60px); /* Ajuste la hauteur du conteneur principal pour faire de la place pour le footer */
+    padding: 20px; /* Espace autour du contenu */
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border-radius: 8px; /* Coins arrondis pour le conteneur */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le conteneur */
 }
 
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
+.footer {
+    background-color: #ffffff; /* Couleur de fond du footer */
+    color: #ffffff; /* Couleur du texte */
+    text-align: center; /* Centre le texte */
+    padding: 15px 0; /* Espace intérieur du footer */
+    position: relative; /* Pour permettre le positionnement correct si besoin */
+    bottom: 0; /* Positionnement en bas de la page */
+    width: 100%; /* S'assure que le footer prend toute la largeur */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Ombre en haut du footer */
+    position: fixed; /* Fixe le footer en bas de la page */
+    left: 0; /* Positionne le footer à gauche */
 }
 
-.card-title {
-    text-align: center;
-    margin-bottom: 20px;
+.footer-container {
+    display: flex; /* Utilise Flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les éléments, les positionne aux extrémités */
+    align-items: center; /* Centre verticalement le contenu */
+    padding: 0 20px; /* Espace intérieur du footer pour les bords */
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    transition: border-color 0.3s ease;
+.footer-text {
+    margin: 0 10px; /* Espace entre les éléments de texte */
+    font-family: 'Arial', sans-serif; /* Police pour le texte */
+    font-size: 1em; /* Taille de police */
+    color: #19204E; /* Couleur du texte */
 }
 
-.form-control:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.submit-btn {
-    background-color: #28a745;
-    color: white;
-}
-
-.submit-btn:hover {
-    background-color: #218838;
-}
-
-.cancel-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.cancel-btn:hover {
-    background-color: #c82333;
-}
-
-.toggle-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-}
-
-.toggle-btn:hover {
-    background-color: #0056b3;
-}
-/* Navbar Styles */
-.navbar {
-    background-color: #4CAF50; /* Green background */
-    padding: 10px 20px; /* Padding for the navbar */
-    display: flex; /* Flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between items */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-.navbar-brand {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
-    font-size: 24px; /* Font size for brand */
-    margin: 0; /* Remove margin */
-}
-
-.navbar-menu {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-    display: flex; /* Flexbox for menu items */
-}
-
-.navbar-item {
-    margin-left: 20px; /* Space between menu items */
-}
-
-.navbar-link {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
-    padding: 10px 15px; /* Padding for links */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start */
-    }
-    .navbar-menu {
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%; /* Full width */
-    }
-    .navbar-item {
-        margin-left: 0; /* Remove left margin */
-        width: 100%; /* Full width for items */
-    }
-    .navbar-link {
-        display: block; /* Block display for full width */
-        text-align: center; /* Center text */
-    }
+.heart-icon {
+    font-size: 1.2em; /* Taille de l'icône de cœur */
 }

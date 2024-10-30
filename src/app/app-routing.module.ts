@@ -5,10 +5,12 @@ import { ModifrestaurantComponent } from './restaurant/modifrestaurant/modifrest
 import { ListfoodComponent } from './food/listfood/listfood.component'; // Import the ListfoodComponent
 import { ListDirectorComponent } from './director/list-director/list-director.component';
 import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
 
+  { path: 'home', component: HomeComponent },
 
   { path: 'listDirector', component: ListDirectorComponent },
 

@@ -1,0 +1,43 @@
+<!-- home.component.html -->
+<div class="container">
+    <div class="columns">
+      <!-- Colonne pour afficher les événements -->
+      <div class="column">
+        <h2 class="title">Events List</h2>
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events">
+              <td>{{ event.event }}</td>
+              <td>{{ event.date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Colonne pour afficher les directeurs -->
+      <div class="column">
+        <h2 class="title">Directors List</h2>
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let director of directors">
+              <td>{{ director.name }}</td>
+              <td>{{ director.contact }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
