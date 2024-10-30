@@ -20,7 +20,9 @@ export class RestaurantService {
   }
 
 
-
+  getSortedRestaurants(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/restaurants/sorted`);
+  }
   
   addRestaurant2(uni: restclass): Observable<any> {
     return this.http.post('http://localhost:8085/addRestaurant', uni, { responseType: 'text' });

@@ -68,6 +68,27 @@ deleteRestaurant(restaurant: any) {
 addRestaurant() {
   this.router.navigate(['addrest']); // Adjust the path as necessary
 }
+getSortedRestaurants() {
+  this.restaurantService.getSortedRestaurants().subscribe(
+      (data: any) => {
+          const bindings = data.results.bindings; // Get the array of sorted restaurant data
+
+          if (Array.isArray(bindings)) {
+              this.restaurants = bindings.map((restaurant: any) => ({
+                  restaurant: restaurant.restaurant.value,
+                  name: restaurant.name.value,
+                  contact: restaurant.contact.value,
+                  address: restaurant.address.value
+              }));
+          } else {
+              console.error('Expected an array but got:', bindings);
+          }
+      },
+      error => {
+          console.error('Error fetching sorted restaurants:', error);
+      }
+  );
+}
 
 addfoyer(uni: restclass) {
   this.restaurantService.addRestaurant2(uni).subscribe({
@@ -80,6 +101,7 @@ addfoyer(uni: restclass) {
     error: (err) => console.log(err),
   });
 }
+
 
 
 navigateToUpdatefoyer(restaurant: any) {
@@ -100,5 +122,19 @@ navigateToUpdatefoyer(restaurant: any) {
     // Optionally, you might want to notify the user
   }
 }*/
+sortRestaurants() {
+  this.restaurants.sort((a, b) => {
+    const nameA = a.name.toLowerCase(); 
+    const nameB = b.name.toLowerCase(); 
+
+    if (nameA < nameB) {
+      return -1; 
+    }
+    if (nameA > nameB) {
+      return 1; 
+    }
+    return 0; 
+  });
+}
 
 }
