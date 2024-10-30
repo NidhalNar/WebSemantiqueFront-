@@ -9,6 +9,8 @@ import { ListDirectorComponent } from './director/list-director/list-director.co
 import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
 import { ListeNotificationComponent } from './Notifivation/listenotification/liste-notification/liste-notification.component';
 import { HomeComponent } from './home/home.component';
+import { ListinventoryComponent } from './inventory/listinventory/listinventory.component';
+import { ListmanagerComponent } from './manager/listmanager/listmanager.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,9 @@ const routes: Routes = [
   { path: 'listEvent', component: ListCollectionEventComponent },
 
   { path: 'listfood', component: ListfoodComponent },
+
+  { path: 'listinventory', component: ListinventoryComponent },
+  { path: 'listmanager', component: ListmanagerComponent },
 
   { path: 'listrestaurant', component: ListrestaurantComponent },
   { path: 'update/:id', component: ModifrestaurantComponent },

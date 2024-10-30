@@ -13,7 +13,8 @@ import { ListDirectorComponent } from './director/list-director/list-director.co
 import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
 import { ListeNotificationComponent } from './Notifivation/listenotification/liste-notification/liste-notification.component';
 import { HomeComponent } from './home/home.component';
-
+import { ListmanagerComponent } from './manager/listmanager/listmanager.component';
+import { ListinventoryComponent } from './inventory/listinventory/listinventory.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { HomeComponent } from './home/home.component';
     ListCollectionEventComponent,
     ListeNotificationComponent,
     HomeComponent,
+    ListmanagerComponent,
+    ListinventoryComponent,
   ],
   imports: [
     BrowserModule,
