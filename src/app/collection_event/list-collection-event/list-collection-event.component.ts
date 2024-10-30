@@ -12,8 +12,12 @@ export class ListCollectionEventComponent implements OnInit {
   events: eventclass[] = [];
   selectedEvent: eventclass | null = null;
   newEvent: eventclass = { event: '', date: '' };
+  minDate: string; // Propriété pour stocker la date minimale
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) {
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0]; // Date d'aujourd'hui au format YYYY-MM-DD
+  }
 
   ngOnInit(): void {
     this.getEvents();

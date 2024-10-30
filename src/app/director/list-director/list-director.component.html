@@ -1,38 +1,49 @@
-<div>
-    <h2>Directors List</h2>
-  
-    <!-- Form to add a new director -->
-    <div>
-      <h3>Add New Director</h3>
-      <label>Name:
-        <input [(ngModel)]="newDirector.name" placeholder="Enter name" />
-      </label><br>
-      <label>Contact:
-        <input [(ngModel)]="newDirector.contact" placeholder="Enter contact" />
-      </label><br>
-      <button (click)="addDirector()">Add Director</button>
-    </div>
-  
-    <!-- List of directors -->
-    <ul>
-      <li *ngFor="let director of directors">
-        <strong>Name:</strong> {{ director.name }} <br>
-        <strong>Contact:</strong> {{ director.contact }} <br>
-        <button (click)="editDirector(director)">Edit</button>
-        <button (click)="deleteDirector(director.director)">Delete</button>
-      </li>
-    </ul>
-  
-    <!-- Edit Director Form -->
-    <div *ngIf="selectedDirector">
-      <h3>Edit Director</h3>
-      <label>Name:
-        <input [(ngModel)]="selectedDirector.name" />
-      </label><br>
-      <label>Contact:
-        <input [(ngModel)]="selectedDirector.contact" />
-      </label><br>
-      <button (click)="updateDirector()">Save</button>
-      <button (click)="selectedDirector = null">Cancel</button>
-    </div>
-  </div>  
+<div class="container">
+  <h2 class="title">Directors List</h2>
+
+  <!-- Form to add a new director -->
+  <div class="form-section">
+    <h3 class="form-title">Add New Director</h3>
+    <label>Name:
+      <input class="input-field" [(ngModel)]="newDirector.name" placeholder="Enter name" />
+    </label><br>
+    <label>Contact:
+      <input class="input-field" [(ngModel)]="newDirector.contact" placeholder="Enter contact" />
+    </label><br>
+    <button class="add" (click)="addDirector()">Add Director</button>
+  </div>
+
+  <!-- List of directors in a table -->
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let director of directors">
+        <td>{{ director.name }}</td>
+        <td>{{ director.contact }}</td>
+        <td>
+          <button class="edit" (click)="editDirector(director)">Edit</button>
+          <button class="delete" (click)="deleteDirector(director.director)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Director Form -->
+  <div *ngIf="selectedDirector" class="form-section">
+    <h3 class="form-title">Edit Director</h3>
+    <label>Name:
+      <input class="input-field" [(ngModel)]="selectedDirector.name" />
+    </label><br>
+    <label>Contact:
+      <input class="input-field" [(ngModel)]="selectedDirector.contact" />
+    </label><br>
+    <button class="save" (click)="updateDirector()">Save</button>
+    <button class="cancel" (click)="selectedDirector = null">Cancel</button>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { ModifrestaurantComponent } from './restaurant/modifrestaurant/modifrest
 import { ListfoodComponent } from './food/listfood/listfood.component';
 import { ListDirectorComponent } from './director/list-director/list-director.component';
 import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
