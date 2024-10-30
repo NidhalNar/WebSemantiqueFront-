@@ -10,76 +10,63 @@ import { RestaurantService } from '../../service/restaurant.service'; // Update 
   styleUrls: ['./modifrestaurant.component.css']
 })
 export class ModifrestaurantComponent implements OnInit {
-  reactiveForm: FormGroup;
-  restaurantId!: string;
-
-  // Assuming you have a list of restaurants
-  restaurants: restclass[] = [];
+  restaurantForm: FormGroup; // Form group to manage the form
+  isSubmitting: boolean = false; // To track submission state
+  successMessage: string = ''; // For displaying success messages
+  errorMessage: string = ''; // For displaying error messages
+  restaurantId!: string; // Store the restaurant ID
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private restaurantService: RestaurantService,
-    private fb: FormBuilder,
-    private route: ActivatedRoute // Inject ActivatedRoute to get the ID from the route
+    private formBuilder: FormBuilder
   ) {
-    this.reactiveForm = this.fb.group({
-      restaurant: [''],
-      name: [''],
-      contact: [''],
-      address: ['']
+    // Initialize the form without validators
+    this.restaurantForm = this.formBuilder.group({
+      restaurant: [''], // Restaurant ID/URI (should be populated)
+      name: [''],       // Restaurant name
+      contact: [''],    // Contact details
+      address: ['']     // Address
     });
   }
 
   ngOnInit(): void {
-    // Get the full restaurant URL from the route parameters
-    const fullId = this.route.snapshot.paramMap.get('id') || '';
-    
-    // Decode the URL and extract the restaurant ID directly
-    const decodedId = decodeURIComponent(fullId); // Decode the URL-encoded ID
-    this.restaurantId = decodedId.split('#')[1] || decodedId; // Handle if there's no '#' character
-
-    // Load the existing restaurant data
-    this.loadRestaurantData();
-}
-
-loadRestaurantData() {
-  console.log('Searching for restaurant with ID:', this.restaurantId);
-  
-  // Check if the restaurantId is correctly matched against the list
-  const restaurant = this.restaurants.find(r => r.restaurant.endsWith(this.restaurantId));
-  
-  if (restaurant) {
-      this.reactiveForm.patchValue({
-          restaurant: restaurant.restaurant,
-          name: restaurant.name,
-          contact: restaurant.contact,
-          address: restaurant.address
+    // Retrieve the restaurant ID from the route parameters
+    this.activatedRoute.params.subscribe(params => {
+      this.restaurantId = params['id']; // Assumes your route has a parameter named 'id'
+      
+      // If you have the restaurant data available, populate the form here
+      this.restaurantForm.patchValue({
+        restaurant: this.restaurantId, // Set the restaurant ID
+        // You can set other values if you already have them (e.g. name, contact, address)
       });
-  } else {
-      console.error('Restaurant not found');
-      alert('Restaurant not found. Please check the ID and try again.'); // User-friendly message
+    });
   }
-}
 
+  onSubmit() {
+    // Set the submitting state
+    this.isSubmitting = true;
 
-  update() {
-    const updatedRestaurant: restclass = {
-      restaurant: this.reactiveForm.value.restaurant,
-      name: this.reactiveForm.value.name,
-      contact: this.reactiveForm.value.contact,
-      address: this.reactiveForm.value.address
-    };
+    // Prepare the restaurant object for modification
+    const modifiedRestaurant: restclass = this.restaurantForm.value;
 
-    console.log('Updated restaurant:', updatedRestaurant); // Log to check values
-
-    this.restaurantService.modifyRestaurant2(updatedRestaurant).subscribe(
-      () => {
-        console.log('Restaurant updated successfully');
-        this.router.navigate(['restaurants']); // Adjust navigation as needed
+    // Call the service to modify the restaurant
+    this.restaurantService.modifyRestaurant(modifiedRestaurant).subscribe(
+      response => {
+        console.log('Restaurant modified successfully:', response);
+        this.successMessage = 'Restaurant modified successfully!'; // Set success message
+        this.router.navigate(['/restaurants']); // Adjust the route as necessary
       },
       error => {
-        console.error('Error updating restaurant:', error);
+        console.error('Error modifying restaurant:', error);
+        this.errorMessage = 'Error modifying restaurant: ' + error.error; // Use error.error for detailed message
+      },
+      () => {
+        this.isSubmitting = false; // Reset the submitting state
       }
     );
   }
+
+
 }

@@ -80,7 +80,25 @@ addfoyer(uni: restclass) {
     error: (err) => console.log(err),
   });
 }
+
+
 navigateToUpdatefoyer(restaurant: any) {
   this.router.navigate(['update', restaurant.restaurant]); // Pass the restaurant ID or URI
 }
+/*
+navigateToUpdatefoyer(restaurant: any) {
+  // Log the restaurant object to check its structure
+  console.log('Restaurant data:', restaurant);
+
+  // Check if restaurant and its URI are defined
+  if (restaurant && restaurant.restaurant) {
+    const restaurantId = restaurant.restaurant.split('#')[1]; // Extract the identifier after the '#'
+    this.router.navigate(['update', restaurantId]); // Pass just the identifier
+  } else {
+    console.error('Invalid restaurant data provided:', restaurant);
+    // Handle the case where restaurant data is invalid
+    // Optionally, you might want to notify the user
+  }
+}*/
+
 }

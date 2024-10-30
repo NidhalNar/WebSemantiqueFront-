@@ -10,6 +10,7 @@ import { restclass } from '../models/restclass'; // Adjust the path as necessary
 })
 export class RestaurantService {
   private apiUrl = 'http://localhost:8085'; // Adjust the URL to your Spring Boot backend
+  private baseUrl: string = 'http://localhost:8085'; // Base URL for your API
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,8 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>(`${this.apiUrl}/restaurant`);
   }
 
+
+
   
   addRestaurant2(uni: restclass): Observable<any> {
     return this.http.post('http://localhost:8085/addRestaurant', uni, { responseType: 'text' });
@@ -25,6 +28,14 @@ export class RestaurantService {
   
   modifyRestaurant2(uni: restclass): Observable<any> {
     return this.http.put('http://localhost:8085/modifyRestaurant', uni, { responseType: 'text' });
+  }
+
+  modifyRestaurant(restaurant: restclass): Observable<any> {
+    // Specify the correct content type
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    // Send the request with the appropriate headers
+    return this.http.put(`${this.baseUrl}/modifyRestaurant`, restaurant, { headers: headers, responseType: 'text' });
   }
 
   /* Modify an existing restaurant
