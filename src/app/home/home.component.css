@@ -1,60 +1,55 @@
 /* home.component.css */
-.container {
-    padding: 20px; /* Espace autour du contenu */
-    background-color: #f9f9f9; /* Couleur de fond douce */
-    border-radius: 8px; /* Coins arrondis pour le conteneur */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le conteneur */
-    font-family: 'Roboto', sans-serif; /* Nouvelle police pour le conteneur */
+.educational-content {
+    margin-top: 40px; /* Espace au-dessus du contenu éducatif */
+    text-align: center; /* Centre le texte dans le contenu éducatif */
 }
-  
-.columns {
-    display: flex; /* Utilise Flexbox pour créer des colonnes */
-    justify-content: space-between; /* Espace entre les colonnes */
+
+.educational-row {
+    display: flex; /* Utilise Flexbox pour disposer l'image et le texte */
+    align-items: center; /* Aligne verticalement les éléments */
+    margin: 20px 0; /* Espace entre les lignes éducatives */
 }
-  
-.column {
-    flex: 1; /* Chaque colonne prendra une part égale de l'espace disponible */
-    margin: 0 10px; /* Marge sur les côtés des colonnes */
-    border: 1px solid #ccc; /* Bordure autour des colonnes */
-    border-radius: 5px; /* Coins arrondis pour les colonnes */
-    padding: 20px; /* Espace intérieur */
-    background-color: #fff; /* Couleur de fond pour les colonnes */
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour les colonnes */
-    transition: transform 0.2s; /* Transition pour l'effet au survol */
+
+.educational-row.center {
+    justify-content: center; /* Centre le contenu dans la ligne */
 }
-  
-.column:hover {
-    transform: scale(1.02); /* Effet d'agrandissement au survol */
+
+.educational-row.reverse {
+    flex-direction: row-reverse; /* Inverse l'ordre pour les lignes alternées */
 }
-  
-.title {
-    font-family: 'Montserrat', sans-serif; /* Nouvelle police pour le titre */
-    color: #333; /* Couleur du texte des titres */
-    margin-bottom: 15px; /* Espace en bas des titres */
-    text-align: center; /* Alignement du texte au centre */
+
+.educational-image {
+    width: 200px; /* Largeur fixe pour les images éducatives */
+    height: auto; /* Maintient les proportions des images */
+    margin: 10px; /* Espace autour des images */
+    border-radius: 8px; /* Coins arrondis pour les images */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour les images */
 }
-  
-.event-table {
-    width: 100%; /* Tableau occupe toute la largeur de la colonne */
-    border-collapse: collapse; /* Évite l'espacement entre les bordures */
-    font-family: 'Arial', sans-serif; /* Police pour le tableau */
+
+.educational-paragraph {
+    font-family: 'Arial', sans-serif; /* Police pour les paragraphes */
+    color: #333; /* Couleur du texte */
+    max-width: 600px; /* Largeur maximale des paragraphes */
+    margin: 0 20px; /* Espace autour des paragraphes */
+    line-height: 1.6; /* Espacement entre les lignes */
+    font-size: 18px; /* Taille de police agrandie */
 }
-  
-.event-table th, .event-table td {
-    padding: 10px; /* Espacement interne des cellules */
-    text-align: left; /* Alignement à gauche */
-    border-bottom: 1px solid #ddd; /* Bordure inférieure des cellules */
+
+.centered-title {
+    font-size: 2.5em; /* Augmente la taille de la police */
+    text-align: center; /* Centre le texte */
+    font-weight: bold; /* Met le texte en gras */
+    margin: 20px 0; /* Ajoute un espacement au-dessus et en dessous */
+    color: red; /* Change la couleur du texte en rouge */
+    text-transform: uppercase; /* Transforme le texte en majuscules */
+    font-family: 'Arial', sans-serif; /* Change la police ici */
 }
-  
-.event-table th {
-    background-color: #007bff; /* Couleur de fond des en-têtes */
-    color: white; /* Couleur du texte des en-têtes */
-}
-  
-.event-table tr:hover {
-    background-color: #f1f1f1; /* Couleur de fond au survol des lignes */
-}
-  
-.event-table td {
-    color: #555; /* Couleur du texte des cellules */
+
+
+.header-image {
+    display: block; /* Assure que l'image est un élément de bloc */
+    margin-left: auto; /* Centre l'image horizontalement */
+    margin-right: auto; /* Centre l'image horizontalement */
+    max-width: 100%; /* Limite la largeur maximale à 100% de son conteneur */
+    height: auto; /* Maintient les proportions de l'image */
 }
