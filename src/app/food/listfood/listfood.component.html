@@ -9,6 +9,9 @@
             <li class="navbar-item">
                 <a routerLink="/listfood" class="navbar-link">Foods</a>
             </li>
+            <li class="navbar-item">
+                <a routerLink="/listfeedback" class="navbar-link">Feedbacks</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -21,7 +24,8 @@
             <th>Food Type</th>
             <th>Quantity</th>
             <th>Expiry Date</th>
-            <th>Actions</th> <!-- Add a column for actions -->
+            <th>Actions</th>
+            <!-- Add a column for actions -->
         </tr>
     </thead>
     <tbody>
@@ -41,28 +45,28 @@
 </table>
 
 <div class="container mt-4">
-  <div class="card mt-3">
-    <div *ngIf="showForm" class="card-body">
-      <h2 class="card-title">Add Food</h2>
-      <form #restaurantForm="ngForm" (ngSubmit)="addfoyer(newUni)">
-        <input type="text" id="restaurantName" name="restaurant" [(ngModel)]="newUni.food" class="form-control" hidden>
-        
-        <label for="foodType">Food Type:</label>
-        <input type="text" id="foodType" name="foodType" [(ngModel)]="newUni.foodType" class="form-control" required>
-        
-        <label for="quantity">Quantity:</label>
-        <input type="text" id="quantity" name="quantity" [(ngModel)]="newUni.quantity" class="form-control" required>
-        
-        <label for="expiryDate">Expiry Date:</label>
-        <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="newUni.expiryDate" class="form-control" required>
-        
-        <button type="submit" [disabled]="restaurantForm.invalid" class="btn btn-success">Add</button>
-        <button type="button" (click)="showForm = false" class="btn btn-danger">Cancel</button>
-      </form>
-    </div>
-  </div>
+    <div class="card mt-3">
+        <div *ngIf="showForm" class="card-body">
+            <h2 class="card-title">Add Food</h2>
+            <form #restaurantForm="ngForm" (ngSubmit)="addfoyer(newUni)">
+                <input type="text" id="restaurantName" name="restaurant" [(ngModel)]="newUni.food" class="form-control" hidden>
 
-  <button (click)="showForm = !showForm" class="btn btn-primary">
+                <label for="foodType">Food Type:</label>
+                <input type="text" id="foodType" name="foodType" [(ngModel)]="newUni.foodType" class="form-control" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="text" id="quantity" name="quantity" [(ngModel)]="newUni.quantity" class="form-control" required>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="newUni.expiryDate" class="form-control" required>
+
+                <button type="submit" [disabled]="restaurantForm.invalid" class="btn btn-success">Add</button>
+                <button type="button" (click)="showForm = false" class="btn btn-danger">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <button (click)="showForm = !showForm" class="btn btn-primary">
     {{ showForm ? 'Cancel' : 'Add Food' }}
   </button>
 </div>

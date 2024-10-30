@@ -9,6 +9,9 @@
             <li class="navbar-item">
                 <a routerLink="/listfood" class="navbar-link">Foods</a>
             </li>
+            <li class="navbar-item">
+                <a routerLink="/listfeedback" class="navbar-link">Feedbacks</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -21,7 +24,8 @@
             <th>Name</th>
             <th>Contact</th>
             <th>Address</th>
-            <th>Actions</th> <!-- Add a column for actions -->
+            <th>Actions</th>
+            <!-- Add a column for actions -->
         </tr>
     </thead>
     <tbody>
@@ -33,7 +37,8 @@
             <td>{{ restaurant.contact }}</td>
             <td>{{ restaurant.address }}</td>
             <td>
-                <button class="btn delete-btn" (click)="deleteRestaurant(restaurant)">Delete</button> <!-- Delete button -->
+                <button class="btn delete-btn" (click)="deleteRestaurant(restaurant)">Delete</button>
+                <!-- Delete button -->
                 <button class="btn modify-btn" (click)="navigateToUpdatefoyer(restaurant)">Modify</button>
             </td>
         </tr>

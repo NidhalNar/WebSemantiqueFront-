@@ -13,8 +13,8 @@ export class FoodService {
 
   constructor(private http: HttpClient) { }
 
-   // Get all restaurants
-   getRestaurants(): Observable<Food[]> {
+  // Get all restaurants
+  getRestaurants(): Observable<Food[]> {
     return this.http.get<Food[]>(`${this.apiUrl}/food`);
   }
 
@@ -48,6 +48,7 @@ export class FoodService {
   }
   // Delete a restaurant
   deleteRestaurant(restaurant: Food): Observable<string> {
+    console.log(restaurant);
     return this.http.delete<string>(`${this.apiUrl}/deleteFood`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

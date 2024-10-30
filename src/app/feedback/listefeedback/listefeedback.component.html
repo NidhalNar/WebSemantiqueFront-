@@ -1,0 +1,71 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <h1 class="navbar-brand">Feedback Management
+        </h1>
+        <br><br>
+        <ul class="navbar-menu">
+            <li class="navbar-item">
+                <a routerLink="/listrestaurant" class="navbar-link">Restaurants</a>
+            </li>
+            <li class="navbar-item">
+                <a routerLink="/listfood" class="navbar-link">Foods</a>
+            </li>
+            <li class="navbar-item">
+                <a routerLink="/listfeedback" class="navbar-link">Feedbacks</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h2 class="centered-title">List of Feedbacks</h2>
+<table>
+    <thead>
+        <tr>
+            <th hidden>Feedback</th>
+            <th>Rating</th>
+            <th>Comment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feedback of feedbacks">
+            <td hidden>
+                <a [href]="feedback.feedback" target="_blank">{{ feedback.feedback }}</a>
+            </td>
+            <td>{{ feedback.rating }}</td>
+            <!-- Assurez-vous que cet ordre est correct -->
+            <td>{{ feedback.comment }}</td>
+            <td>
+                <button (click)="deleteFeedback(feedback)" class="btn btn-danger">Delete</button>
+                <button class="btn btn-secondary" (click)="navigateToUpdateFeedback(feedback)">Modify</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<div class="container mt-4">
+    <div class="card mt-3">
+        <div *ngIf="showForm" class="card-body">
+            <h2 class="card-title">Add Feedback</h2>
+            <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback(newFeedback)">
+
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" [(ngModel)]="newFeedback.rating" class="form-control" required min="1" max="5">
+
+                <label for="comment">Comment:</label>
+                <input id="comment" name="comment" [(ngModel)]="newFeedback.comment" class="form-control" required>
+                <br>
+
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                    <button type="submit" [disabled]="feedbackForm.invalid" class="btn btn-success">Add</button>
+                    <button type="button" (click)="showForm = false" class="btn btn-danger">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <button (click)="showForm = !showForm" class="btn btn-primary">
+        {{ showForm ? 'Cancel' : 'Add Feedback' }}
+    </button>
+</div>

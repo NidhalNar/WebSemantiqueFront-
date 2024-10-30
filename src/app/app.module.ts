@@ -8,6 +8,7 @@ import { ListrestaurantComponent } from './restaurant/listrestaurant/listrestaur
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifrestaurantComponent } from './restaurant/modifrestaurant/modifrestaurant.component';
 import { ListfoodComponent } from './food/listfood/listfood.component';
+import { ListefeedbackComponent } from './feedback/listefeedback/listefeedback.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ListfoodComponent } from './food/listfood/listfood.component';
     ListrestaurantComponent,
     ModifrestaurantComponent,
     ListfoodComponent,
+    ListefeedbackComponent
   ],
   imports: [
     BrowserModule,
