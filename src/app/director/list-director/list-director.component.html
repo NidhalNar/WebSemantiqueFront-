@@ -1,17 +1,7 @@
 <div class="container">
   <h2 class="title">Directors List</h2>
 
-  <!-- Form to add a new director -->
-  <div class="form-section">
-    <h3 class="form-title">Add New Director</h3>
-    <label>Name:
-      <input class="input-field" [(ngModel)]="newDirector.name" placeholder="Enter name" />
-    </label><br>
-    <label>Contact:
-      <input class="input-field" [(ngModel)]="newDirector.contact" placeholder="Enter contact" />
-    </label><br>
-    <button class="add" (click)="addDirector()">Add Director</button>
-  </div>
+
 
   <!-- List of directors in a table -->
   <table class="event-table">
@@ -33,6 +23,18 @@
       </tr>
     </tbody>
   </table>
+
+    <!-- Form to add a new director -->
+    <div class="form-section">
+      <h3 class="form-title">Add New Director</h3>
+      <label>Name:
+        <input class="input-field" [(ngModel)]="newDirector.name" placeholder="Enter name" />
+      </label><br>
+      <label>Contact:
+        <input class="input-field" [(ngModel)]="newDirector.contact" placeholder="Enter contact" />
+      </label><br>
+      <button class="add" (click)="addDirector()">Add Director</button>
+    </div>
 
   <!-- Edit Director Form -->
   <div *ngIf="selectedDirector" class="form-section">
