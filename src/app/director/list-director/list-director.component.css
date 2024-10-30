@@ -1,75 +1,74 @@
-/* Style de base pour le conteneur */
-div {
-    max-width: 600px; /* Largeur maximale du conteneur */
-    margin: 20px auto; /* Centrer le conteneur */
-    padding: 20px; /* Espacement intérieur */
-    border: 1px solid #ddd; /* Bordure autour du conteneur */
+.container {
+    max-width: 900px; /* Largeur maximale pour le conteneur */
+    margin: 0 auto; /* Centrer le conteneur */
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond douce */
     border-radius: 8px; /* Coins arrondis */
-    background-color: #f9f9f9; /* Couleur de fond */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
 }
 
-/* Styles pour les titres */
-h2 {
-    text-align: center; /* Centre le titre principal */
-    color: #333; /* Couleur du texte */
+.title {
+    text-align: center;
+    color: #333;
 }
 
-h3 {
-    margin-top: 20px; /* Espace au-dessus des sous-titres */
-    color: #555; /* Couleur des sous-titres */
+.form-section {
+    margin: 20px 0; /* Espacement entre les sections */
+    padding: 15px; /* Espacement interne */
+    background-color: #fff; /* Couleur de fond blanche */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Ombre douce */
 }
 
-/* Styles pour les étiquettes et les entrées */
-label {
-    display: block; /* Chaque label sur une nouvelle ligne */
-    margin-bottom: 5px; /* Espace en bas du label */
-    font-weight: bold; /* Gras pour les étiquettes */
+.form-title {
+    margin-bottom: 10px; /* Espacement en bas des titres */
+    color: #555;
 }
 
-/* Styles pour les entrées de texte */
-input {
-    width: calc(100% - 10px); /* Largeur des entrées */
-    padding: 8px; /* Espacement intérieur des entrées */
-    margin-bottom: 15px; /* Espace en bas de chaque entrée */
-    border: 1px solid #ccc; /* Bordure pour les entrées */
-    border-radius: 4px; /* Coins arrondis des entrées */
-}
-
-/* Styles pour les boutons */
-button {
-    padding: 10px 15px; /* Espacement intérieur des boutons */
-    margin-right: 10px; /* Espace entre les boutons */
-    border: none; /* Pas de bordure */
+.input-field {
+    width: calc(100% - 22px); /* Largeur responsive */
+    padding: 10px; /* Espacement interne */
+    margin-bottom: 10px; /* Espacement en bas */
+    border: 1px solid #ccc; /* Bordure grise */
     border-radius: 4px; /* Coins arrondis */
-    background-color: #007bff; /* Couleur de fond des boutons */
+}
+
+.event-table {
+    width: 100%; /* Largeur à 100% */
+    max-width: 1000px; /* Largeur maximale pour le tableau */
+    border-collapse: collapse; /* Supprimer les espaces entre les cellules */
+    margin-top: 20px; /* Espacement au-dessus du tableau */
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+}
+
+th, td {
+    padding: 10px; /* Espacement interne des cellules */
+    border: 1px solid #ddd; /* Bordure des cellules */
+    text-align: left; /* Alignement à gauche */
+}
+
+th {
+    background-color: #f2f2f2; /* Couleur de fond pour les en-têtes */
+}
+
+.add, .save, .cancel, .edit, .delete {
+    background-color: #4CAF50; /* Vert */
     color: white; /* Couleur du texte */
-    cursor: pointer; /* Curseur en main */
-    transition: background-color 0.3s; /* Effet de transition */
-}
-
-/* Changement de couleur au survol des boutons */
-button:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
-}
-
-/* Styles pour la liste des directeurs */
-ul {
-    list-style-type: none; /* Pas de puces */
-    padding: 0; /* Pas de remplissage */
-    margin: 20px 0; /* Espace au-dessus et au-dessous de la liste */
-}
-
-li {
-    background-color: #e9ecef; /* Couleur de fond des éléments de liste */
-    padding: 10px; /* Espacement intérieur des éléments de liste */
-    margin-bottom: 10px; /* Espace entre les éléments de liste */
-    border-radius: 4px; /* Coins arrondis des éléments de liste */
-}
-
-/* Styles pour le formulaire d'édition */
-.edit-form {
-    border: 1px solid #ccc; /* Bordure autour du formulaire */
-    padding: 15px; /* Espacement intérieur */
-    background-color: #f7f7f7; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    padding: 10px 15px; /* Espacement interne des boutons */
+    cursor: pointer; /* Curseur en forme de main */
+    margin-right: 5px; /* Espacement entre les boutons */
     border-radius: 4px; /* Coins arrondis */
+}
+
+.edit {
+    background-color: #008CBA; /* Bleu */
+}
+
+.delete {
+    background-color: #f44336; /* Rouge */
+}
+
+button:hover {
+    opacity: 0.8; /* Effet d'opacité au survol */
 }

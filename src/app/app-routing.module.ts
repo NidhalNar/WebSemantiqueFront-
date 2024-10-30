@@ -8,10 +8,12 @@ import { ListefeedbackComponent } from './feedback/listefeedback/listefeedback.c
 import { ListDirectorComponent } from './director/list-director/list-director.component';
 import { ListCollectionEventComponent } from './collection_event/list-collection-event/list-collection-event.component';
 import { ListeNotificationComponent } from './Notifivation/listenotification/liste-notification/liste-notification.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
 
+  { path: 'home', component: HomeComponent },
 
   { path: 'listDirector', component: ListDirectorComponent },
 
